@@ -42,7 +42,7 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        $user = User::create($request->validated() + ['password' => bcrypt($request->password)]);
+        $user = User::create($request->validated() + ['password' => bcrypt($request->password), 'username' => strstr($request->email, '@', true)]);
         $user->roles()->sync($request->input('roles'));
 
         return redirect()->route('admin.users.index')->with('message', "Successfully Created !");   
@@ -70,7 +70,11 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request,User $user)
     {
-        $user->update($request->validated() + ['password' => bcrypt($request->password)]);
+        $validated = $request->validated();
+        if(!empty($request->password)){
+            $validated = $validated + ['password' => bcrypt($request->password)];
+        }
+        $user->update($validated);
         $user->roles()->sync($request->input('roles'));
 
         return redirect()->route('admin.users.index')->with('message',  "Successfully updated !");

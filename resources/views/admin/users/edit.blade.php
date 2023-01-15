@@ -26,8 +26,8 @@
                     @csrf
                     @method('put')
                     <div class="form-group">
-                        <label for="name">{{ __('Name') }}</label>
-                        <input type="text" class="form-control" id="name" placeholder="{{ __('Name') }}" name="name" value="{{ old('name', $user->name) }}" />
+                        <label for="first_name">{{ __('Name') }}</label>
+                        <input type="text" class="form-control" id="first_name" placeholder="{{ __('Name') }}" name="first_name" value="{{ old('name', $user->first_name) }}" />
                     </div>
                     <div class="form-group">
                         <label for="email">{{ __('Email') }}</label>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="form-group">
                         <label for="password">{{ __('Password') }}</label>
-                        <input type="text" class="form-control" id="password" placeholder="{{ __('Password') }}" name="password" value="{{ old('password',  $user->password) }}" />
+                        <input type="text" class="form-control" id="password" placeholder="{{ __('Password') }}" name="password" value="" />
                     </div>
                     <div class="form-group">
                         <label for="roles">{{ __('Role') }}</label>

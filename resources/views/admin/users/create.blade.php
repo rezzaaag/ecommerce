@@ -25,8 +25,8 @@
                 <form action="{{ route('admin.users.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="name">{{ __('Name') }}</label>
-                        <input type="text" class="form-control" id="name" placeholder="{{ __('Name') }}" name="name" value="{{ old('name') }}" />
+                        <label for="first_name">{{ __('Name') }}</label>
+                        <input type="text" class="form-control" id="first_name" placeholder="{{ __('Name') }}" name="first_name" value="{{ old('first_name') }}" />
                     </div>
                     <div class="form-group">
                         <label for="email">{{ __('Email') }}</label>
